@@ -1,0 +1,59 @@
+{% extends 'base.html' %}
+
+
+
+{% block page-css %}
+{% endblock %}
+
+
+{% block page-container %}
+<div class="col-lg-9">
+
+    <h1>个人日报历史</h1>
+    <a class="btn btn-danger btn-sm" href="{% url 'daily:add_daily' %}">新日报</a>
+    <a class="btn btn-info btn-sm" href="#">个人日报统计</a>
+    <a class="btn btn-info btn-sm" href="#">部门整体情况</a>
+
+    <table class="table table-responsive">
+      <thead>
+      <tr class="">
+          <td><strong>日期</strong></td>
+          <td><strong>状态</strong></td>
+          <td><strong>分类</strong></td>
+          <td><strong>工作时间</strong></td>
+          <td><strong>领导评语</strong></td>
+      </tr>
+      </thead>
+      <tbody>
+            {% for obj in history %}
+                <tr>
+                <td>{{ obj.upload_date  }}</td>
+                <td><p class="daily_status{{ obj.status }}">{{ obj.get_status_display }}</p></td>
+{#                <td><a class="btn btn-info btn-sm">{{ obj.get_status_display }}</a></td>#}
+                <td>{% for c in  obj.categories.all %}{{ c.name }},{% endfor %}</td>
+                <td>{{ obj.hours }}</td>
+                <td>{% if obj.comment   %} YES
+                    {% else %}NO
+                    {% endif %}
+                </td>
+                </tr>
+            {% endfor %}
+      </tbody>
+    </table>
+
+</div>
+
+
+
+<div class="col-lg-3">
+
+
+
+</div>
+
+
+{% endblock %}
+
+{% block bottom-js %}
+
+{% endblock %}

@@ -12,8 +12,8 @@ class UserProfile(models.Model):
     signature = models.CharField(u'个性签名', max_length=255,
                                  blank=True, null=True)
     head_portrait = models.ImageField(u"用户头像",
-                                 upload_to="uploads/userprofile",
-                                 default="uploads/userprofile/default_user_head.ipg")
+                                 upload_to="daily/static/daily",
+                                 default="daily/static/daily/default_user_head.ipg")
 
     def __str__(self):
         return self.user.username
@@ -51,9 +51,9 @@ class Daily(models.Model):
                                         related_name='my_categories',
                                         )
     status_chioces = (
-        (0,u'编写'),
-        (1,u'审核'),
-        (2,u'锁定'),
+        (0,u'可修改'),
+        (1,u'已提交'),
+        (2,u'已锁定'),
     )
     status = models.IntegerField(u'日报状态',
                                  choices=status_chioces,
@@ -62,6 +62,10 @@ class Daily(models.Model):
     hours = models.FloatField(u'工作时间', default=7.5)
     comment = models.TextField(u'评语', null=True, blank=True)
 
+
+    class Meta:
+        unique_together = (("upload_date", "user"),)
+        ordering = ['-upload_date', 'user']
 
     def __str__(self):
         return '%s,%s日报' %(self.user.name, self.upload_date)

@@ -1,0 +1,27 @@
+{% extends 'base.html' %}
+
+{% block page-css %}
+    <link href="/static/bootstrap/css/signin.css" rel="stylesheet">
+{% endblock %}
+{% block page-container %}
+
+    <form class="form-signin" action="" method="post" > {% csrf_token %}
+        <h2 class="form-signin-heading">Please Sign In</h2>
+        {% if login_err %}
+        <div style="color: red;">{{ login_err }}</div>
+        {% endif %}
+        <label for="inputEmail" class="sr-only">User name</label>
+        <input type="text" id="inputEmail" name="username" class="form-control" placeholder="User name" required="" autofocus="">
+        <label for="inputPassword" class="sr-only">Password</label>
+        <input type="password" id="inputPassword" name="password" class="form-control" placeholder="Password" required="">
+        <div class="checkbox">
+          <label>
+            <input type="checkbox" value="remember-me"> Remember me
+          </label>
+        </div>
+        <input class="btn btn-lg btn-primary btn-block" type="submit" value="Sign in">
+      </form>
+
+
+
+{% endblock %}

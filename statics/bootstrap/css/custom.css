@@ -1,0 +1,127 @@
+
+.hide{
+    display: none;
+}
+
+.chat-box-toolbar{
+    height: 560px;
+    border: gray solid 1px;
+    border-radius: 5px 0 0 5px;
+    padding: 50px 0;
+}
+.chat-user-head{
+    margin-bottom: 50px;
+}
+.chat-box-friends{
+    height: 560px;
+    border: gray solid 1px;
+}
+.chat-box-findfriends{
+    height: 60px;
+    /*border-bottom: blue solid 1px;*/
+}
+/*.chat-box-findfriends div{*/
+    /*padding-top: 10px;*/
+/*}*/
+
+
+.chat-box-choosefriends{
+    height: 500px;
+
+}
+
+
+.chat-box-msg{
+    height: 560px;
+    border: gray solid 1px;
+    border-radius: 0 5px 5px 0;
+}
+/*---------- msg title --------------*/
+.chat-box-msgtitle{
+    height: 60px;
+    border-bottom: green solid 1px;
+}
+.chat-box-msgtitle div{
+    line-height: 60px;
+    font-size: 40px;
+}
+
+/*------------ msg windows --------------*/
+.chat-box-msgwindow{
+    height: 380px;
+    border-bottom: green solid 1px;
+    overflow-y: scroll;
+}
+
+
+/*------------ emoj --------------*/
+.chat-box-emoj{
+    height: 30px;
+    /*border-bottom: green solid 1px;*/
+    line-height: 30px;
+    padding-left: 10px;
+}
+
+/*------------ msg input textarea --------------*/
+.chat-box-msgin{
+    height: 90px;
+}
+.chat-box-msgin textarea{
+    height: 70px;
+    border: none;
+    width:100%;
+}
+
+
+
+/*------------ other --------------*/
+.user-head-img-display{
+    width:20px;
+    height: 20px;
+}
+.user-head-img-display-window{
+    width:40px;
+    height: 40px;
+}
+.user-head-img-display-left{
+    width:60px;
+    height: 60px;
+}
+.each_msg_text{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+/*------------------------------*/
+.file {
+    position: relative;
+    display: inline-block;
+    background: #D0EEFF;
+    border: 1px solid #99D3F5;
+    border-radius: 4px;
+    padding: 4px 12px;
+    overflow: hidden;
+    color: #1E88C7;
+    text-decoration: none;
+    text-indent: 0;
+    line-height: 15px;
+}
+.file input {
+    position: absolute;
+    font-size: 100px;
+    right: 0;
+    top: 0;
+    opacity: 0;
+}
+.file:hover {
+    background: #AADFFD;
+    border-color: #78C3F3;
+    color: #004974;
+    text-decoration: none;
+}
+
+
+/*-------- for daily status ----------*/
+.daily_status0 {color:#fff;background-color:#5bc0de;}
+.daily_status1 {color:#fff;background-color:green;}
+.daily_status2 {color:#fff;background-color:gray}

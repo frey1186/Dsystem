@@ -5,15 +5,16 @@ from daily import  models
 
 
 class UserProfileAdmin(admin.ModelAdmin):
-    pass
+
+
+    fieldsets = [
+        ('Name',               {'fields': ['name','user']}),
+        ('Basic information', {'fields': ['signature','head_portrait']}),
+    ]
 
 
 
 
-
-
-
-
-admin.site.register(models.UserProfile)
+admin.site.register(models.UserProfile, UserProfileAdmin)
 admin.site.register(models.Daily)
 admin.site.register(models.Categories)

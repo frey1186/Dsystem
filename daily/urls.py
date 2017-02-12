@@ -18,10 +18,11 @@ Including another URLconf
 from django.conf.urls import url
 from daily import views
 
-app_name = 'daily'
 
 urlpatterns = [
     url(r'^$', views.index, name='index'),  # 首页
+    url(r'^add/$', views.add_daily, name='add_daily'),  # 新增日报
+    url(r'^history/$', views.history, name='history'),  # 历史
 
 
 

@@ -94,11 +94,11 @@ a system for department.
 
 整体表格：
 
-  序号 |  页面名称   |   url名称     | view函数名   | 返回模板/数据    | 是否管理员专用   | 是否共用  
-  ----|------------| ------------ |-----------   | -----------    | ------------  |  --------
-  1   |   登陆页面  | user_login   | user_login    |   index.html   |   no         |   yes
-  2   |   登出      | user_logout  | user_logout  |  user_login.html |  no         |   yes
-  3   |   修改用户   | user_modfied  | user_modfied|  user_profile.html  | no          |   no
+  序号  |  页面名称    |   url名称      | view函数名   |  成功返回           |     失败返回   | admin   | 是否共用  
+  ---- |------------ | ------------  |-----------   | ----------------- | ------------  | ------- | ---
+  1    |   登陆页面   |  user_login    | user_login  |   url:index       | user_login.html|  no     |   yes     
+  2    |   登出      |  user_logout   | user_logout  |  user_login.html  |               | no  |   yes
+  3    |   修改用户   |  user_modfied  | user_modfied |  user_profile.html |              |no  |   no
 
 详细内容：
 
@@ -112,7 +112,7 @@ a system for department.
 
 - 修改用户
   - 功能：修改用户的密码、个性签名和头像
-  
+
 
 ### 3.2 日报管理设计
 

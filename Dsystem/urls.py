@@ -20,11 +20,11 @@ from Dsystem import views
 
 urlpatterns = [
     url(r'^admin/', admin.site.urls),
-    url(r'^daily/', include(daily_urls)),
+    url(r'^$',views.home, name='home'),
+    url(r'^daily/', include(daily_urls, namespace='daily')),
 
     url(r'^login/', views.user_login, name="login"),  # 登陆
     url(r'^logout/', views.user_logout, name="logout"),  # 登出
-    url(r'^$', views.test,),
 
 
 
