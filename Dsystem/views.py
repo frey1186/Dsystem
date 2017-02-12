@@ -11,7 +11,7 @@ def user_login(request):
                             password=request.POST.get('password'))
         if user is not None:
             login(request, user)
-            return HttpResponseRedirect(request.GET.get('next') or reverse("home"))
+            return HttpResponseRedirect(request.GET.get('next') or reverse("blog:index"))
         else:
             login_err = "Wrong username or password!"
             return render(request, 'user_login.html', {'login_err': login_err})

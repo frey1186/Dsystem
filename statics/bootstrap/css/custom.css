@@ -125,3 +125,8 @@
 .daily_status0 {color:#fff;background-color:#5bc0de;}
 .daily_status1 {color:#fff;background-color:green;}
 .daily_status2 {color:#fff;background-color:gray}
+
+
+body{
+    background: url("/static/background.png");
+}

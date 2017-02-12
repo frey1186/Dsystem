@@ -1,0 +1,36 @@
+{% extends 'blog/index.html' %}
+{% block page-title %}Blog{% endblock %}
+{% block blog_active %}active{% endblock %}
+{% load custom_markdown %}
+
+{% block page-container-left %}
+
+    <h1>{{ articles.title }}</h1>
+    <div>
+        <span class="label label-success">{{ articles.get_article_type_display }}</span>
+        <span class="label label-primary">{{ articles.mod_time  }}</span>&nbsp;
+        <span class="label label-info">
+            {% for tag in articles.tags.all %}
+                {{ tag }}&nbsp;
+            {% endfor  %}
+        </span>&nbsp;
+
+    </div>
+    <hr/>
+    <p>
+    {{ articles.content | custom_markdown  }}
+    </p>
+
+{% endblock %}
+
+
+{% block page-container-right %}
+    {% if  request.user.is_authenticated %}
+    <div class="list-group">
+        <div><a href="{% url 'blog:article-add' %}">添加新文章</a></div>
+        <div><a href="{% url 'blog:article-update' articles.id %}">编辑</a></div>
+    </div>
+    {% endif %}
+
+
+{% endblock %}

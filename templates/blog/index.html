@@ -1,0 +1,41 @@
+{% extends 'base.html' %}
+{% block page-title %}Blog{% endblock %}
+{% block blog_active %}active{% endblock %}
+
+
+{% block page-container %}
+
+
+    <div class="col-lg-9">
+    {% block page-container-left %}
+        <hr/>
+        {% for article in articles_list %}
+            <h3 >
+                <a href="{% url 'blog:detail' article.pk %}">{{ article.title }}</a>
+            </h3>
+
+            <p>
+                {{ article.content | truncatechars:200}}
+
+                {% if  request.user.is_authenticated %}
+                <a href="{% url 'blog:article-update' article.id %}">编辑</a>
+                {% endif %}
+
+            </p>
+
+            <hr/>
+
+        {% endfor %}
+    {% endblock %}
+    </div>
+
+    <div class="col-lg-3">
+        {% block page-container-right %}
+            <div class="list-group">
+                <a href="{% url 'blog:article-add' %}">添加新文章</a>
+            </div>
+        {% endblock %}
+    </div>
+
+
+{% endblock %}

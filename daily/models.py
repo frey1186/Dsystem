@@ -1,22 +1,8 @@
 from django.db import models
 from django.contrib.auth.models import User
-
+from user.models import UserProfile
 # Create your models here.
 
-class UserProfile(models.Model):
-    '''
-    用户相关
-    '''
-    user = models.OneToOneField(User)
-    name = models.CharField(u'姓名', max_length=16, )
-    signature = models.CharField(u'个性签名', max_length=255,
-                                 blank=True, null=True)
-    head_portrait = models.ImageField(u"用户头像",
-                                 upload_to="daily/static/daily",
-                                 default="daily/static/daily/default_user_head.ipg")
-
-    def __str__(self):
-        return self.user.username
 
 
 class Categories(models.Model):

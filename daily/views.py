@@ -7,11 +7,6 @@ from daily import models
 # Create your views here.
 
 
-def index(request): # 首页测试
-    return render(request, 'daily/index.html')
-
-
-
 def add_daily(request):
 
 
