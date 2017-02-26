@@ -2,10 +2,14 @@
 {% block page-title %}Blog{% endblock %}
 {% block blog_active %}active{% endblock %}
 {% load custom_markdown %}
+{% load custom %}
 
 {% block page-container-left %}
 
-    <h1>{{ articles.title }}</h1>
+    <h1>
+        <a href="{% url 'blog:detail' articles.pk %}">{{ articles.title | capfirst}}</a>
+
+    </h1>
     <div>
         <span class="label label-success">{{ articles.get_article_type_display }}</span>
         <span class="label label-primary">{{ articles.mod_time  }}</span>&nbsp;
@@ -21,16 +25,48 @@
     {{ articles.content | custom_markdown  }}
     </p>
 
+    <div style="float: right;">
+        <span style="float: right">
+
+            <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">回复</button>
+        </span>
+        {% include 'blog/modal_add_comments.html' %}
+        &nbsp;
+        {% if  request.user.is_authenticated %}
+            <a class="btn btn-info btn-sm" href="{% url 'blog:article-update' articles.id %}">编辑</a>
+        {% endif %}
+    </div>
+
+
+    <hr/>
+    <h2>Comments</h2>
+    {% for comment,level in comments %}
+        <div style="padding-left:{{ level }}px">
+            {% include 'blog/comment-body.html' %}
+
+        </div>
+    {% endfor %}
+
 {% endblock %}
 
 
-{% block page-container-right %}
-    {% if  request.user.is_authenticated %}
-    <div class="list-group">
-        <div><a href="{% url 'blog:article-add' %}">添加新文章</a></div>
-        <div><a href="{% url 'blog:article-update' articles.id %}">编辑</a></div>
-    </div>
-    {% endif %}
+{% block page-container-right %}{% endblock %}
+
+
+
+{% block bottom-js %}
+    <script>
+
+    $(document).ready(function () {
+        $('.btn.btn-info.btn-sm').click(function () {
+            var comment_id = $(this).parents('.panel.panel-info')[0].id;
+            console.log(comment_id);
+            $('#comment_id.hidden').val(comment_id);
+        });
+    });
+
+    </script>
+
 
 
 {% endblock %}

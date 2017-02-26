@@ -26,7 +26,7 @@ class Articles(models.Model):
     tags = models.ManyToManyField('Tag',blank=True)
 
     def get_absolute_url(self):
-        return reverse('blog:detail', kwargs={'pk': self.pk})
+        return reverse('blog:detail', kwargs={'article_id': self.pk})
 
     class Meta:
         ordering = ['-mod_time']
@@ -34,4 +34,18 @@ class Articles(models.Model):
     def __str__(self):
         return self.title
 
+
+
+class Comments(models.Model):
+    vister = models.CharField('访客', max_length=16)
+    pub_time = models.DateTimeField(u'评论时间', auto_now_add=True)
+    title = models.CharField('标题',max_length=128, blank=True, null=True)
+    upper_comments = models.ForeignKey('self',
+                                        related_name="lower_comments",
+                                        blank=True,null=True)
+    article = models.ForeignKey(Articles)
+    content = models.TextField('评论')
+
+    def __str__(self):
+        return '%s-%s comment at %s' % (self.id, self.vister, self.pub_time)
 

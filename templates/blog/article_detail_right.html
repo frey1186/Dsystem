@@ -1,0 +1,29 @@
+<hr/>
+<div>
+    <div>
+        <h3>最近文章</h3>
+        {% for article in articles_list %}
+            <div>
+                <a href="{% url 'blog:detail' article.pk %}">
+                    {{ article.title | capfirst }}
+                </a>
+            <span class=" glyphicon glyphicon-comment"></span>
+                    {{ article.comments_set.count }}
+            </div>
+        {% endfor %}
+    </div>
+</div>
+
+
+<hr/>
+<div>
+    <div>
+        <h3>最近回复</h3>
+        {% for comments in comments_list %}
+            <div>
+                <span><strong>{{ comments.vister }}</strong>
+                    :{{ comments.content | truncatechars:50 }}</span>
+            </div>
+        {% endfor %}
+    </div>
+</div>

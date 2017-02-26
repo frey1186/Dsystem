@@ -127,6 +127,37 @@
 .daily_status2 {color:#fff;background-color:gray}
 
 
-body{
-    background: url("/static/background.png");
+/*body{*/
+    /*background: url("/static/background.png");*/
+/*}*/
+
+
+
+/*-----------------comments header ------------------*/
+.aaa
+{
+    display : block;
+	font-size : 30px;
+    border-radius:50%;
+    float: left;
+    height: 50px;
+    width: 50px;
+    border:1px solid #7fc508;
+    line-height: 50px;
+    text-align: center;
+    background-color: #7fc508;
+    color: white;
 }
+
+.bbb {
+    height: 25px;
+    border:1px solid white;
+    line-height: 25px;
+    }
+
+.ccc {
+    height: 25px;
+    border:1px solid white;
+    line-height: 25px;
+
+    }

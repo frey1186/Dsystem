@@ -10,9 +10,15 @@
     {% block page-container-left %}
         <hr/>
         {% for article in articles_list %}
-            <h3 >
-                <a href="{% url 'blog:detail' article.pk %}">{{ article.title }}</a>
+            <h3>
+                <a href="{% url 'blog:detail' article.pk %}">{{ article.title | capfirst }}</a>
             </h3>
+{#            <div class="">#}
+{#                <span class="glyphicon glyphicon-time"></span><span>{{ article.mod_time | timesince }}</span>&nbsp;ago.#}
+{#                <span class="glyphicon glyphicon-comment"></span>{{ article.comments_set.count }}#}
+{#            </div>#}
+
+
 
             <p>
                 {{ article.content | truncatechars:200}}
@@ -31,11 +37,13 @@
 
     <div class="col-lg-3">
         {% block page-container-right %}
-            <div class="list-group">
+            <div class="">
                 <a href="{% url 'blog:article-add' %}">添加新文章</a>
             </div>
+            {% include 'blog/article_detail_right.html' %}
         {% endblock %}
     </div>
+
 
 
 {% endblock %}

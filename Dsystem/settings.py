@@ -41,7 +41,6 @@ INSTALLED_APPS = [
     'daily',
     'user',
     'blog',
-    'comments',
 ]
 
 MIDDLEWARE_CLASSES = [

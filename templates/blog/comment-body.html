@@ -1,0 +1,50 @@
+<div class="panel panel-info" id="comment-{{ comment.id }}">
+    <div class="panel-heading">
+            <div style="display : block;
+                        font-size : 25px;
+                        border-radius:50%;
+                        float: left;
+                        height: 40px;
+                        width: 40px;
+                        border:1px solid #7fc508;
+                        line-height: 40px;
+                        text-align: center;
+                        background-color: #7fc508;
+                        color: white;
+                        ">
+                {% load custom %}
+                {{ comment.vister | custom_first_char }}
+            </div>
+
+            <div style="height: 20px;
+{#                            border:1px solid ;#}
+                        line-height: 20px;
+                        padding-left: 50px;
+            ">
+
+                <strong style="font-size:20px">{{ comment.vister }}</strong>
+                &nbsp;评论于&nbsp;
+                <span style="">{{comment.pub_time |time}}</span>
+                <span style="float: right">
+
+                    <button class="btn btn-info btn-sm" data-toggle="modal" data-target="#myModal">回复</button>
+                </span>
+
+
+            </div>
+            <div style="height: 20px;
+{#                            border:1px solid ;#}
+                        line-height: 20px;
+                        padding-left: 50px;
+            ">
+                <span>{{ comment.title }}</span>
+            </div>
+    </div>
+
+
+
+    <div class="panel-body">
+            {{ comment.content }}
+    </div>
+
+</div>
