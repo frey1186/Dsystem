@@ -2,7 +2,7 @@ from django.shortcuts import render,HttpResponse,HttpResponseRedirect
 from blog import models
 from django.views.generic import ListView, DetailView, CreateView, UpdateView, DeleteView
 # Create your views here.
-from markdown import  markdown
+from markdown import markdown
 from django.core.urlresolvers import reverse_lazy
 from datetime import datetime
 
@@ -88,18 +88,6 @@ def comments_add(request,article_id,comments_id=None):
         )
         new_comment.save()
     return HttpResponseRedirect(reverse_lazy('blog:detail',args=[article_id]))
-
-
-# vister = model
-# pub_time = mod
-# title = models
-# upper_comments
-#
-# article = mode
-# content = mode
-
-
-
 
 
 class NewArticlelView(CreateView):

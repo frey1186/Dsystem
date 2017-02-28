@@ -31,4 +31,4 @@ def home(request):
     if  request.user.is_authenticated(): # 判断是否已经登录用户
         return render(request,'base.html')
     else:
-        return HttpResponseRedirect(reverse("login"))
+        return HttpResponseRedirect(reverse('blog:index'))
