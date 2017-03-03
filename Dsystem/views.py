@@ -29,6 +29,10 @@ def user_logout(request):
 def home(request):
 
     if  request.user.is_authenticated(): # 判断是否已经登录用户
-        return render(request,'base.html')
+        return HttpResponseRedirect(reverse('blog:index'))
+        # return render(request,'home.html',
+        #               {
+        #                   "meta_data":request.META,
+        #               })
     else:
         return HttpResponseRedirect(reverse('blog:index'))

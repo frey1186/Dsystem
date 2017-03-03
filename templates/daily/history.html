@@ -30,7 +30,7 @@
             {% for obj in history %}
                 <tr>
                 <td>{{ obj.upload_date  }}</td>
-                <td><p class="daily_status{{ obj.status }}">{{ obj.get_status_display }}</p></td>
+                <td><p class="label {% cycle 'label-success' 'label-info' %}">{{ obj.get_status_display }}</p></td>
 {#                <td><a class="btn btn-info btn-sm">{{ obj.get_status_display }}</a></td>#}
                 <td>{% for c in  obj.categories.all %}{{ c.name }},{% endfor %}</td>
                 <td>{{ obj.hours }}</td>

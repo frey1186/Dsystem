@@ -15,8 +15,8 @@ from datetime import datetime
 #         return models.Articles.objects.all()[:5:-1]  # 倒序，5个；
 
 def blog_index(request):
-   articles_list =  models.Articles.objects.all().order_by('-mod_time')[:5]  # 倒序，5个；
-   comments_list = models.Comments.objects.all().order_by('-pub_time')[:5]  # 倒序，5个；
+   articles_list =  models.Articles.objects.all().order_by('-mod_time')[:10]  # 倒序，10个；
+   comments_list = models.Comments.objects.all().order_by('-pub_time')[:10]  # 倒序，10个；
 
    return render(request,
                  'blog/index.html',
@@ -24,6 +24,18 @@ def blog_index(request):
                      "articles_list":articles_list,
                      "comments_list":comments_list,
                  })
+
+
+
+def archive(request):
+    articles = models.Articles.objects.all()
+
+    return render(request,
+                  'blog/archive.html',
+                  {
+                      'archive':articles,
+                  })
+
 
 
 
@@ -77,6 +89,11 @@ def comments_add(request,article_id,comments_id=None):
         else:
             upper_comments = None
         content = request.POST.get('content')
+        user_agent = request.META.get('HTTP_USER_AGENT').split()[-1]
+        remote_host = request.META.get('REMOTE_ADDR')
+
+
+
 
         new_comment = models.Comments(
             vister=vister,
@@ -84,7 +101,9 @@ def comments_add(request,article_id,comments_id=None):
             pub_time=pub_time,
             article=article,
             upper_comments= upper_comments,
-            content=content
+            content=content,
+            user_agent=user_agent,
+            remote_host=remote_host,
         )
         new_comment.save()
     return HttpResponseRedirect(reverse_lazy('blog:detail',args=[article_id]))

@@ -1,0 +1,41 @@
+{% extends 'blog/index.html' %}
+{% block page-title %}Blog{% endblock %}
+{% block blog_active %}active{% endblock %}
+{% load custom_markdown %}
+{% load custom %}
+
+{% block page-container-left %}
+
+    <h1>
+        <a href="{% url 'blog:archive' %}">文章归档</a>
+
+    </h1>
+    <hr/>
+    <h2>2017</h2>
+    <hr/>
+    {% for a in archive %}
+        {% if a.mod_time.year == 2017 %}
+
+            <div class="row"><h4>
+                <a class="col-lg-4" href="{% url 'blog:detail' a.id %}">
+                    <span class="glyphicon glyphicon-text-background"></span>
+                        {{ a.title }}
+                </a></h4>
+                <span class="col-lg-8">
+                    &nbsp;post at &nbsp;
+                    {% load humanize %}
+                    {{ a.mod_time | date }}
+                </span>
+
+            </div>
+        {% endif %}
+    {% endfor %}
+    <hr/>
+
+
+{% endblock %}
+
+
+{% block page-container-right %}{% endblock %}
+
+

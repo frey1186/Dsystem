@@ -41,6 +41,7 @@ INSTALLED_APPS = [
     'daily',
     'user',
     'blog',
+    'django.contrib.humanize',
 ]
 
 MIDDLEWARE_CLASSES = [

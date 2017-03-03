@@ -1,3 +1,29 @@
 {% extends 'base.html' %}
 
 
+{% block page-container %}
+
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+               <td>Key</td>
+               <td>Value</td>
+            </tr>
+        </thead>
+
+        <tbody>
+        {% for k,v in meta_data.items %}
+            <tr>
+                <td>{{ k }}</td>
+                <td>{{ v }}</td>
+            </tr>
+        {% endfor %}
+        </tbody>
+    </table>
+
+
+
+
+
+
+{% endblock %}

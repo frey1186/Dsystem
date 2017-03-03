@@ -45,6 +45,8 @@ class Comments(models.Model):
                                         blank=True,null=True)
     article = models.ForeignKey(Articles)
     content = models.TextField('评论')
+    user_agent = models.CharField('浏览器',max_length=16,blank=True,null=True)
+    remote_host = models.CharField('客户端地址',max_length=16,blank=True,null=True)
 
     def __str__(self):
         return '%s-%s comment at %s' % (self.id, self.vister, self.pub_time)
