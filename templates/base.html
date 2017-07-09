@@ -52,7 +52,7 @@
               <li class="{% block lock_active %}{% endblock %}"><a href="#"><span class="glyphicon glyphicon-lock"></span>&nbsp;收藏</a></li>
               <li class="dropdown">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
-                    <span class="glyphicon glyphicon-filter"></span>&nbsp;工具
+                      <span class="glyphicon glyphicon-filter"></span>&nbsp;工具
                   </a>
                 <ul class="dropdown-menu">
                   <li><a href="#">something</a></li>
@@ -62,9 +62,22 @@
                   <li><a href="#">something</a></li>
 
                 </ul>
+              </li>
               {% endif %}
               <li class="{% block blog_active %}{% endblock %}"><a href="{% url 'blog:index' %}"><span class="glyphicon glyphicon-flag"></span>&nbsp;博客</a></li>
-              <li class="{% block sale_active %}{% endblock %}"><a href="{% url 'sale:index' %}"><span class="glyphicon glyphicon-save"></span>&nbsp;售前</a></li>
+              <li class="dropdown">
+                  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
+                      <span class="glyphicon glyphicon-save"></span>&nbsp;售前
+                  </a>
+                <ul class="dropdown-menu">
+                  <li><a href="{% url 'sale:index' %}">我的售前</a></li>
+                  <li><a href="#">总体情况</a></li>
+                  <li><a href="#">我的流程</a></li>
+                  <li><a href="#">查询查询</a></li>
+                  <li><a href="#">售前激励</a></li>
+
+                </ul>
+              </li>
 
             </ul>
 
