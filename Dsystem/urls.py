@@ -25,6 +25,7 @@ urlpatterns = [
     url(r'^blog/', include('blog.urls', namespace='blog')),
     url(r'^sale/', include('sale.urls', namespace='sale')),
     url(r'^user/', include('user.urls', namespace='user')),
+    url(r'^tf/', include('tfMaker.urls', namespace='tfMaker')),
 
 
 

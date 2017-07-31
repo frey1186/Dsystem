@@ -50,12 +50,12 @@
               <li class="{% block daily_active %}{% endblock %}"><a href="{% url 'daily:history' %}"><span class="glyphicon glyphicon-tag"></span>&nbsp;日报</a></li>
               <li class="{% block book_active %}{% endblock %}"><a href="#"><span class="glyphicon glyphicon-book"></span>&nbsp;笔记</a></li>  <!-- TODO: doc manage -->
               <li class="{% block lock_active %}{% endblock %}"><a href="#"><span class="glyphicon glyphicon-lock"></span>&nbsp;收藏</a></li>
-              <li class="dropdown">
+              <li class="dropdown {% block tools %}{% endblock %}">
                   <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">
                       <span class="glyphicon glyphicon-filter"></span>&nbsp;工具
                   </a>
                 <ul class="dropdown-menu">
-                  <li><a href="#">something</a></li>
+                  <li><a href="{% url  'tfMaker:index'  %}">投标文件制作工具</a></li>
                   <li><a href="#">something</a></li>
                   <li><a href="#">something</a></li>
                   <li><a href="#">something</a></li>
