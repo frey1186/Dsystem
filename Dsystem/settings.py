@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     'blog',
     'django.contrib.humanize',
     'sale',
+    'tfMaker',
 ]
 
 MIDDLEWARE_CLASSES = [
